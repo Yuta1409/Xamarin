@@ -6,6 +6,6 @@
 
     <TabbedPage.Children>
         <vues:MainPage Title="AJOUT" />
-        <vues:Page1 Title="LISTE"/>
+        <vues:Liste_Humeurs Title="LISTE"/>
     </TabbedPage.Children>
 </TabbedPage>

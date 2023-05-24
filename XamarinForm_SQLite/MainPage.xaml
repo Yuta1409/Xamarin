@@ -8,7 +8,7 @@
         <RadioButton x:Name="mauvaiseHumeurRadio" Content="mauvaise humeur"/>
         <Label Text="Décrivez votre humeur du jour en quelques mots..." />
         <Entry x:Name="humeurEntry" />
-        <Button x:Name="humeurButton" Text="Ajouter"/>
+        <Button x:Name="humeurButton" Text="Ajouter" Clicked="HumeurButton_Clicked"/>
         <Label x:Name="message" />
     </StackLayout>
 </ContentPage>

@@ -27,16 +27,39 @@ namespace XamarinForm_SQLite.Repositories
             {
                 nbHumeurs = await _connection.InsertAsync(new Humeur { Commentaire = commentaire, Note = note, DateAjout = dateAjout });
                 // Gestion d'un message à afficher
-                Message = $"Humeur du jour ajoutée : {commentaire}.\n {monHumeur}.\n {dateAjout}";
+                string message = $"Humeur du jour ajoutée : {commentaire}.\n {monHumeur}.\n {dateAjout}";
+                Console.WriteLine(message);
             }
             catch (Exception e)
             {
-                Message = $"Impossible d'ajouter l'humeur : {commentaire}.\n Erreur : {e.Message}";
+                string message = $"Impossible d'ajouter l'humeur : {commentaire}.\n Erreur : {e.Message}";
+                Console.WriteLine(message);
             }
         }
 
-        
 
-       
+        public async Task<List<Humeur>> ListeHumeursAsync()
+        {
+            try
+            {
+                return await _connection.Table<Humeur>().ToListAsync();
+            }
+            catch(Exception e)
+            {
+                //Gérer l'erreur si besoin
+                Console.WriteLine($"Erreur lors de la récupération de la liste d'humeurs : {e.Message}");
+                return new List<Humeur>();
+            }
+        }
+
+        public async Task SupprimerAllHumeurs<T>()
+        {
+            await _connection.DeleteAllAsync<Humeur>();
+        }
+
+        public async Task SupprimerUneHumeur(Humeur humeur)
+        {
+            await _connection.DeleteAsync(humeur);
+        }
     }
 }
