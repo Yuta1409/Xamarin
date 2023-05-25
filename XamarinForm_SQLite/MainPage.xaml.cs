@@ -18,8 +18,15 @@ namespace XamarinForm_SQLite
 
         private async void HumeurButton_Clicked(object sender, EventArgs e)
         {
-            // Appel de la méthode AjouterHumeurAsync de la classe HumeurRepository
-            await App.HumeurRepository.AjouterHumeurAsync(humeurEntry.Text, bonneHumeurRadio.IsChecked ? 1 : 0, DateTime.Now);
+            bool action = await DisplayAlert("Félicitation !", "Votre humeur à bien été ajouter à la liste.", "OUI", "NON");
+
+            if (action)
+            {
+                // Appel de la méthode AjouterHumeurAsync de la classe HumeurRepository
+                await App.HumeurRepository.AjouterHumeurAsync(humeurEntry.Text, bonneHumeurRadio.IsChecked ? 1 : 0, DateTime.Now);
+            }
+
+            
         }   
     }
 }

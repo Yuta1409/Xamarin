@@ -15,7 +15,7 @@ namespace XamarinForm_SQLite
         {
             InitializeComponent();
 
-            MainPage = new TabbedPage1();
+            MainPage = new Appli_TabbedPage();
 
             HumeurRepository = new HumeurRepository(dbPath);
         }

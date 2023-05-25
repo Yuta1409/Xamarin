@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace XamarinForm_SQLite
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TabbedPage1 : TabbedPage
+    public partial class Appli_TabbedPage : TabbedPage
     {
-        public TabbedPage1 ()
+        public Appli_TabbedPage()
         {
             InitializeComponent();
         }

@@ -23,20 +23,21 @@ namespace XamarinForm_SQLite.Repositories
         public string monHumeur { get; set; }
         public async Task AjouterHumeurAsync(string commentaire, int note, DateTime dateAjout) 
         {
+
+            
+
             try
             {
                 nbHumeurs = await _connection.InsertAsync(new Humeur { Commentaire = commentaire, Note = note, DateAjout = dateAjout });
                 // Gestion d'un message à afficher
-                string message = $"Humeur du jour ajoutée : {commentaire}.\n {monHumeur}.\n {dateAjout}";
-                Console.WriteLine(message);
+                //Message = $"Humeur du jour ajoutée : {commentaire}.\n {monHumeur}.\n {dateAjout}";
+                
             }
             catch (Exception e)
             {
-                string message = $"Impossible d'ajouter l'humeur : {commentaire}.\n Erreur : {e.Message}";
-                Console.WriteLine(message);
+                //Message = $"Impossible d'ajouter l'humeur : {commentaire}.\n Erreur : {e.Message}";
             }
         }
-
 
         public async Task<List<Humeur>> ListeHumeursAsync()
         {
